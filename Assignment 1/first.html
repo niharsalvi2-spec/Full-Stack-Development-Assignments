@@ -3,149 +3,224 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML Text Formatting Tags</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="first.css">
 </head>
 
 <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <div class="logo-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+            </div>
+            <div class="nav-title">
+                <span class="highlight">HTML</span> Tags Guide
+            </div>
+        </div>
+        <div class="search-container">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" class="search-icon">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="searchInput" class="search-input" placeholder="Search tags...">
+        </div>
+    </nav>
 
-    <div class="container">
+    <!-- Main Content -->
+    <main class="container">
 
-        <div class="header-content">
-            <span class="assignment-badge">Assignment 1</span>
-            <h1 class="title">HTML Text Formatting Tags Guide</h1>
-            <p class="subtitle">Common HTML tags used to format and style text in webpages</p>
+        <!-- Page Header -->
+        <h1 class="page-title">Text Formatting Tags</h1>
+        <p class="description">
+            HTML contains several elements for defining text with a special meaning.
+            These formatting tags help in styling the content appropriately, beyond just for basic emphasis.
+        </p>
+
+        <!-- Callout Box -->
+        <div class="callout">
+            <div class="callout-icon-wrapper">
+                <div class="callout-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#111827">
+                        <path
+                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                    </svg>
+                </div>
+            </div>
+            <div class="callout-content">
+                <h3>Semantic Precision</h3>
+                <p>Using tags like <code>&lt;strong&gt;</code> instead of just bolding ensures that screen readers and
+                    search engines understand the structural meaning, keeping your web pages accessible and optimized.
+                </p>
+            </div>
         </div>
 
+        <!-- Data Table -->
         <div class="table-wrapper">
-            <table class="format-table">
-
-            <thead>
-                <tr>
-                    <th>Tag</th>
-                    <th>Description</th>
-                    <th>Example Output</th>
-                </tr>
-            </thead>
-
-            <tbody>
-
-                <tr>
-                    <td>&lt;b&gt;</td>
-                    <td>Displays bold text without extra importance.</td>
-                    <td><b>Bold Text</b></td>
-                </tr>
-
-                <tr>
-                    <td>&lt;strong&gt;</td>
-                    <td>Defines strong importance (important text).</td>
-                    <td><strong>Strong Text</strong></td>
-                </tr>
-
-                <tr>
-                    <td>&lt;i&gt;</td>
-                    <td>Displays italic styled text.</td>
-                    <td><i>Italic Text</i></td>
-                </tr>
-
-                <tr>
-                    <td>&lt;em&gt;</td>
-                    <td>Emphasized text (semantic importance).</td>
-                    <td><em>Emphasized Text</em></td>
-                </tr>
-
-                <tr>
-                    <td>&lt;u&gt;</td>
-                    <td>Underlines text.</td>
-                    <td><u>Underlined Text</u></td>
-                </tr>
-
-                <tr>
-                    <td>&lt;mark&gt;</td>
-                    <td>Highlights text.</td>
-                    <td><mark>Highlighted Text</mark></td>
-                </tr>
-
-                <tr>
-                    <td>&lt;small&gt;</td>
-                    <td>Defines smaller text.</td>
-                    <td><small>Small Text</small></td>
-                </tr>
-
-                <tr>
-                    <td>&lt;del&gt;</td>
-                    <td>Shows deleted text.</td>
-                    <td><del>Deleted Text</del></td>
-                </tr>
-
-                <tr>
-                    <td>&lt;ins&gt;</td>
-                    <td>Shows inserted text.</td>
-                    <td><ins>Inserted Text</ins></td>
-                </tr>
-
-                <tr>
-                    <td>&lt;sub&gt;</td>
-                    <td>Subscript text.</td>
-                    <td>H<sub>2</sub>O</td>
-                </tr>
-
-                <tr>
-                    <td>&lt;sup&gt;</td>
-                    <td>Superscript text.</td>
-                    <td>X<sup>2</sup></td>
-                </tr>
-
-                <tr>
-                    <td>&lt;code&gt;</td>
-                    <td>Displays code snippets.</td>
-                    <td><code>printf()</code></td>
-                </tr>
-
-                <tr>
-                    <td>&lt;pre&gt;</td>
-                    <td>Preformatted text preserving spaces and line breaks.</td>
-                    <td>
-                        <pre>
-Line 1
-Line 2
-</pre>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>&lt;q&gt;</td>
-                    <td>Defines short inline quotation.</td>
-                    <td><q>This is a quote</q></td>
-                </tr>
-
-                <tr>
-                    <td>&lt;blockquote&gt;</td>
-                    <td>Defines large block quotation.</td>
-                    <td>
-                        <blockquote>This is a block quote</blockquote>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>&lt;abbr&gt;</td>
-                    <td>Displays abbreviation with tooltip.</td>
-                    <td><abbr title="HyperText Markup Language">HTML</abbr></td>
-                </tr>
-
-                <tr>
-                    <td>&lt;cite&gt;</td>
-                    <td>Defines title of work.</td>
-                    <td><cite>Web Technologies</cite></td>
-                </tr>
-
-            </tbody>
-
-        </table>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>TAG</th>
+                        <th>DESCRIPTION</th>
+                        <th>EXAMPLE CODE / OUTPUT</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="tag-cell">&lt;b&gt;</td>
+                        <td>Defines bold text, without any extra importance.</td>
+                        <td>
+                            <div class="example-pill"><b>Bold Text</b></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tag-cell">&lt;i&gt;</td>
+                        <td>Defines a part of text in an alternate voice or mood.</td>
+                        <td>
+                            <div class="example-pill"><i>Italic Text</i></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tag-cell">&lt;strong&gt;</td>
+                        <td>Defines important text. Content inside is typically displayed in bold.</td>
+                        <td>
+                            <div class="example-pill"><strong>Strong Text</strong></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tag-cell">&lt;em&gt;</td>
+                        <td>Emphasized text (semantic importance).</td>
+                        <td>
+                            <div class="example-pill"><em>Emphasized Text</em></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tag-cell">&lt;mark&gt;</td>
+                        <td>Defines marked or highlighted text for reference.</td>
+                        <td>
+                            <div class="example-pill" style="color: black;"><mark>Highlighted Text</mark></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tag-cell">&lt;small&gt;</td>
+                        <td>Defines smaller text.</td>
+                        <td>
+                            <div class="example-pill"><small>Small Text</small></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tag-cell">&lt;del&gt;</td>
+                        <td>Shows deleted text.</td>
+                        <td>
+                            <div class="example-pill"><del>Deleted Text</del></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tag-cell">&lt;ins&gt;</td>
+                        <td>Shows inserted text.</td>
+                        <td>
+                            <div class="example-pill"><ins>Inserted Text</ins></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tag-cell">&lt;sub&gt;</td>
+                        <td>Defines subscript text (appears half a character below normal line).</td>
+                        <td>
+                            <div class="example-pill">H<sub>2</sub>O</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tag-cell">&lt;sup&gt;</td>
+                        <td>Defines superscript text (appears half a character above normal line).</td>
+                        <td>
+                            <div class="example-pill">X<sup>2</sup></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tag-cell">&lt;u&gt;</td>
+                        <td>Underlines text.</td>
+                        <td>
+                            <div class="example-pill"><u>Underlined Text</u></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tag-cell">&lt;code&gt;</td>
+                        <td>Displays code snippets.</td>
+                        <td>
+                            <div class="example-pill"><code>printf()</code></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tag-cell">&lt;pre&gt;</td>
+                        <td>Preformatted text.</td>
+                        <td>
+                            <div class="example-pill" style="padding: 4px; height: auto;">Line 1<br>Line 2</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tag-cell">&lt;q&gt;</td>
+                        <td>Defines short inline quotation.</td>
+                        <td>
+                            <div class="example-pill"><q>This is a quote</q></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tag-cell">&lt;blockquote&gt;</td>
+                        <td>Defines large block quotation.</td>
+                        <td>
+                            <div class="example-pill">
+                                <blockquote>This is a block quote</blockquote>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tag-cell">&lt;abbr&gt;</td>
+                        <td>Displays abbreviation with tooltip.</td>
+                        <td>
+                            <div class="example-pill"><abbr title="HyperText Markup Language">HTML</abbr></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tag-cell">&lt;cite&gt;</td>
+                        <td>Defines title of work.</td>
+                        <td>
+                            <div class="example-pill"><cite>Web Technologies</cite></div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
-    </div>
 
+        <!-- Search Filtering Script -->
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const searchInput = document.getElementById('searchInput');
+                const tableRows = document.querySelectorAll('.data-table tbody tr');
+
+                searchInput.addEventListener('input', function () {
+                    const query = this.value.toLowerCase();
+
+                    tableRows.forEach(row => {
+                        // Extract text content from the row
+                        const rowText = row.textContent.toLowerCase();
+                        // Show or hide row based on whether it matches the query
+                        if (rowText.includes(query)) {
+                            row.style.display = '';
+                        } else {
+                            row.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        </script>
 </body>
 
 </html>
