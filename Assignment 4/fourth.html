@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="forth.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="background-anim"></div>
+
+    <main class="container glass">
+        <!-- Search Section -->
+        <div class="search-box">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="search-icon"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="text" id="cityInput" placeholder="Search for a city..." autocomplete="off">
+            <button id="searchBtn">Search</button>
+        </div>
+
+        <!-- Weather Display (Default State) -->
+        <div class="weather-content" id="weatherContent">
+            <div class="main-weather fade-in">
+                <div class="weather-icon pulse" id="weatherIcon">
+                    <!-- Default to Sun -->
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                </div>
+                <h1 class="temp" id="tempText">72°F</h1>
+                <h2 class="city" id="cityText">San Francisco, CA</h2>
+                <p class="condition" id="conditionText">Clear Sky</p>
+            </div>
+
+            <!-- Details Grid -->
+            <div class="weather-details fade-in-delayed">
+                <div class="detail-card">
+                    <span class="detail-label">Humidity</span>
+                    <span class="detail-val" id="humidityText">45%</span>
+                </div>
+                <div class="detail-card">
+                    <span class="detail-label">Wind Speed</span>
+                    <span class="detail-val" id="windText">12 mph</span>
+                </div>
+                <div class="detail-card">
+                    <span class="detail-label">Visibility</span>
+                    <span class="detail-val" id="visText">10 mi</span>
+                </div>
+                <div class="detail-card">
+                    <span class="detail-label">Pressure</span>
+                    <span class="detail-val" id="presText">1012 hPa</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Simple mock API script to demonstrate functionality
+        const searchBtn = document.getElementById('searchBtn');
+        const cityInput = document.getElementById('cityInput');
+        
+        searchBtn.addEventListener('click', () => {
+            const city = cityInput.value.trim() || 'New York';
+            
+            // Re-trigger animation
+            const content = document.getElementById('weatherContent');
+            content.style.opacity = '0';
+            content.style.transform = 'scale(0.98)';
+            
+            setTimeout(() => {
+                document.getElementById('cityText').innerText = city;
+                // Randomize temp to look dynamic
+                document.getElementById('tempText').innerText = Math.floor(Math.random() * 40 + 40) + '°F';
+                
+                content.style.opacity = '1';
+                content.style.transform = 'scale(1)';
+                // re-apply transition for visual
+                content.style.transition = 'all 0.5s ease';
+            }, 300);
+        });
+
+        // Trigger search on enter
+        cityInput.addEventListener('keypress', (e) => {
+            if(e.key === 'Enter') searchBtn.click();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce - Premium Store</title>
+    <link rel="stylesheet" href="third.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar glass">
+        <div class="logo">LUXE<span>STORE</span></div>
+        <ul class="nav-links">
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#shop">Shop</a></li>
+            <li><a href="#">Categories</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <div class="nav-icons">
+            <button class="icon-btn cart-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                <span id="cart-count" class="cart-badge">0</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Banner -->
+    <header class="hero">
+        <div class="hero-content fade-in">
+            <span class="pill">New Collection 2026</span>
+            <h1>Discover Redefined Elegance.</h1>
+            <p>Elevate your everyday style with our exclusive premium collection.</p>
+            <a href="#shop" class="btn primary">Shop Now</a>
+        </div>
+        <div class="hero-image fade-in-delayed">
+            <!-- Simulated image using gradient -->
+            <div class="model-placeholder bg-grad"></div>
+        </div>
+    </header>
+
+    <!-- Products Section -->
+    <main id="shop" class="shop-section">
+        <div class="section-heading scroll-reveal">
+            <h2>Trending Now</h2>
+            <p>Explore our most sought-after pieces.</p>
+        </div>
+
+        <div id="product-grid" class="product-grid">
+            <!-- Products will be injected here via JavaScript -->
+            <p id="loading-text" style="text-align:center; grid-column: 1/-1; padding: 50px;">Loading premium collections...</p>
+        </div>
+    </main>
+
+    <script>
+        let cart = 0;
+        const cartBadge = document.getElementById('cart-count');
+        const productGrid = document.getElementById('product-grid');
+
+        function addToCart() {
+            cart++;
+            cartBadge.textContent = cart;
+            cartBadge.classList.add('pop');
+            setTimeout(() => cartBadge.classList.remove('pop'), 300);
+        }
+
+        async function fetchProducts() {
+            try {
+                // Try fetching from Assignment 6 Backend
+                const response = await fetch('http://localhost:5001/api/products');
+                const products = await response.json();
+                renderProducts(products);
+            } catch (error) {
+                console.warn('Backend not running. Loading fallback products.');
+                // Fallback to static products if backend isn't up
+                const fallbackProducts = [
+                    { name: "Minimalist Watch", category: "Accessories", price: 195.00, imageClass: "product-1" },
+                    { name: "Wireless Earbuds", category: "Electronics", price: 129.00, imageClass: "product-2" },
+                    { name: "Urban Jacket", category: "Apparel", price: 249.00, imageClass: "product-3" },
+                    { name: "Classic Sneakers", category: "Footwear", price: 110.00, imageClass: "product-4" }
+                ];
+                renderProducts(fallbackProducts);
+            }
+        }
+
+        function renderProducts(products) {
+            productGrid.innerHTML = '';
+            products.forEach(p => {
+                const markup = `
+                    <div class="product-card glass scroll-reveal active">
+                        <div class="product-img ${p.imageClass}"></div>
+                        <div class="product-details">
+                            <span class="category">${p.category}</span>
+                            <h3>${p.name}</h3>
+                            <div class="price-row">
+                                <span class="price">$${p.price.toFixed(2)}</span>
+                                <button class="add-btn" onclick="addToCart()">+</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                productGrid.innerHTML += markup;
+            });
+        }
+
+        // Scroll reveals for initial elements
+        const reveals = document.querySelectorAll('.scroll-reveal');
+        window.addEventListener('scroll', () => {
+            const h = window.innerHeight;
+            reveals.forEach(r => {
+                if(r.getBoundingClientRect().top < h - 50) {
+                    r.classList.add('active');
+                }
+            });
+        });
+        
+        // Initial triggers
+        setTimeout(() => {
+            reveals.forEach(r => r.classList.add('active'));
+            fetchProducts();
+        }, 300);
+    </script>
+</body>
+</html>
