@@ -1,22 +1,14 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useState } from "react";
+import products from "../data/products";
 
 export const ProductContext = createContext();
 
 const ProductProvider = ({ children }) => {
-  // products state
-  const [products, setProducts] = useState([]);
-  // fetch products
-  useEffect(() => {
-    const fetchProducts = async () => {
-      const response = await fetch("https://fakestoreapi.com/products");
-      const data = await response.json();
-      setProducts(data);
-    };
-    fetchProducts();
-  }, []);
+  // Use local product data instead of FakeStore API
+  const [allProducts] = useState(products);
 
   return (
-    <ProductContext.Provider value={{ products }}>
+    <ProductContext.Provider value={{ products: allProducts }}>
       {children}
     </ProductContext.Provider>
   );

@@ -1,48 +1,65 @@
-# E-commerce Shopping Website with FakeStore Api
+# NovaStore — React E-Commerce App
 
-This is a fully responsive e-commerce shopping website project built using React and Tailwind CSS. The website utilizes the Fake Store API to fetch data and display products. The Context API is used to manage state throughout the application.
+> **Assignment 3 | Full Stack Development**  
+> **Student:** Nihar Salvi | **Roll No:** FY23N062
 
-## Table of Contents
+---
 
-- [Demo](#demo)
-- [Features](#features)
-- [Screenshots](#screenshots)
-- [Technologies Used](#technologies-used)
-- [Installation and Setup](#installation-and-setup)
+## 📁 Source Code Structure
 
-## Demo
+```
+src/
+├── components/          ← Reusable UI components
+│   ├── Header.js        ← Navbar with NovaStore branding + cart icon
+│   ├── Hero.js          ← Hero banner with gradient background
+│   ├── Product.js       ← Product card (image, rating, Add to Cart)
+│   ├── CartItem.js      ← Individual cart item with qty controls
+│   ├── Sidebar.js       ← Slide-in cart drawer
+│   └── Footer.js        ← Branded footer
+│
+├── pages/               ← Route-level page components
+│   ├── Home.js          ← Product grid + search bar + category filter
+│   ├── ProductDetails.js← Full product page with breadcrumb & ratings
+│   └── Checkout.js      ← Multi-step checkout with order confirmation
+│
+├── contexts/            ← React Context API (global state)
+│   ├── ProductContext.js← Provides product list from local data
+│   ├── CartContext.js   ← Cart: add, remove, increase, decrease, clear
+│   └── SidebarContext.js← Cart sidebar open/close toggle
+│
+├── data/
+│   └── products.js      ← 12 local products (replaces FakeStore API)
+│
+├── App.js               ← Router setup + layout
+└── index.js             ← React DOM entry point
+```
 
-You can see a live demo of this project [here](https://ecommerce-shop-react-app.vercel.app/).
+---
 
-## Features
+## ✅ Assignment Requirements Checklist
 
-- `Home page` displays the `featured products`, which are fetched from the **Fake Store API**. Each product card displays the product image, name, and price.
-- `Product Details` page showing a detailed view of the selected product, including an image, title, description and price.
-- `Cart` page displaying the added products, quantities and total price. The user can **add or remove products** from the cart, and the cart will update accordingly.
-- Fully `responsive design` that can adapt to different screen sizes and devices.
+- [x] Product grid (12 products, 4 categories)
+- [x] Product details page
+- [x] Add to Cart functionality
+- [x] Cart update (increase / decrease / remove)
+- [x] Checkout page with form & payment options
+- [x] Search bar (real-time)
+- [x] Category filter (All / Electronics / Clothing / Accessories / Footwear)
+- [x] No external API — uses local `src/data/products.js`
+- [x] Custom branding (NovaStore)
 
-## Tech Stack
+---
 
-- **React**: A JavaScript library for building user interfaces
-- **Tailwind CSS**: A utility-first CSS framework for rapidly building custom designs.
-- **Fake Store API**: A free API for testing and prototyping e-commerce websites
-- **Context API**: A React API for managing global state in an application.
+## 🚀 Run Locally
 
-## Screenshots
+```bash
+npm install
+npm start
+```
 
-Below are some screenshots of the website.
+---
 
-![Home Page](/src/img/home-page.png)
+## 👨‍💻 Developer Info
 
-![Cart/Sidebar](/src/img/cart.png)
-
-## Installation and Setup
-
-1. Clone the repository to your local machine.
-2. Navigate to the project directory and run `npm install` to install all dependencies.
-3. Run `npm start` to start the application.
-4. Open `http://localhost:3000` in your browser to view the website.
-
-
-Thank you! 🤍
-– Nigar Safarova
+**Nihar Salvi** — Roll No: FY23N062  
+GitHub: [@niharsalvi2-spec](https://github.com/niharsalvi2-spec)

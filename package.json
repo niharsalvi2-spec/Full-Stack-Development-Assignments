@@ -1,6 +1,8 @@
 {
-  "name": "ecommerce-shop",
-  "version": "0.1.0",
+  "name": "novastore-ecommerce",
+  "version": "1.0.0",
+  "description": "Assignment 3 - React E-Commerce App | Nihar Salvi | FY23N062",
+  "author": "Nihar Salvi <niharsalvi2-spec@github> (Roll No: FY23N062)",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
